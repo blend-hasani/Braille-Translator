@@ -343,4 +343,7 @@ button:active {
   .note {
     font-size: 15px;
   }
+  textarea {
+    height: 300px;
+  }
 }
