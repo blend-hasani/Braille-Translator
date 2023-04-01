@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="stye.css" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      .description {
+        margin-top: 100px;
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: start;
+        font-size: 20px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .description {
+          width: 90%;
+          height: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <div class="menu-icon">
+          <span class="fas fa-bars"></span>
+        </div>
+        <div class="logo">
+          <img style="width: 50px" src="images/rks.png" alt="" />
+        </div>
+  
+        <div class="nav-items">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutbraille.html">Rreth Braille</a></li>
+  
+       </div> 
+       <div class="search-icon">
+          <!-- <span class="fas fa-search"></span> -->
+        </div>
+        <div class="cancel-icon">
+          <span class="fas fa-times"></span>
+        </div>
+       
+       </nav> 
+       <div class="content"></div>
+        <script>
+          const menuBtn = document.querySelector(".menu-icon span");
+          const searchBtn = document.querySelector(".search-icon");
+          const cancelBtn = document.querySelector(".cancel-icon");
+          const items = document.querySelector(".nav-items");
+          const form = document.querySelector("form");
+          menuBtn.onclick = () => {
+            items.classList.add("active");
+            menuBtn.classList.add("hide");
+            searchBtn.classList.add("hide");
+            cancelBtn.classList.add("show");
+          };
+          cancelBtn.onclick = () => {
+            items.classList.remove("active");
+            menuBtn.classList.remove("hide");
+            searchBtn.classList.remove("hide");
+            cancelBtn.classList.remove("show");
+            form.classList.remove("active");
+            cancelBtn.style.color = "#ff3d00";
+          };
+          searchBtn.onclick = () => {
+            form.classList.add("active");
+            searchBtn.classList.add("hide");
+            cancelBtn.classList.add("show");
+          };
+        </script>
+      </nav>  
+    <div class="description">
+      <img style="width: 200px; border-radius: 50%" src="images/braille.webp" alt="" />
+      <h1>Braille</h1>
+
+      <p>
+        Louis Braille ishte një inventues francez i famshëm i cili ndërtoi
+        sistemin e shkrimit me braille. Braille lindi në Coupvray, në Francë në
+        vitin 1809 dhe u rrit në një familje që kishte një fermë. Në moshën
+        3-vjeçare, Braille kishte lëvizur në furrë me instrumente dhe nuk kishte
+        parë kurrë diellin. Në moshën 10-vjeçare, ai u dërgua në një shkollë të
+        re në Paris për të mësuar. Megjithëse ai ishte i talentuar, ai u përball
+        me sfida të mëdha për shkak të mungesës së një sistemi shkrimi për
+        njerëzit me shikim të dobët. Në moshën 15-vjeçare, Braille hapi rrugën
+        për të krijuar sistemin e tij të shkrimit, duke përdorur një sistem të
+        thjeshtë të pikave që mund të ndjehen me dorë. Ai kishte shpresuar që
+        kjo teknologji do t'i ndihmonte njerëzit me shikim të dobët të mësojnë
+        dhe të komunikojnë më lehtë. Sistemi braille u bë i njohur në të gjithë
+        botën dhe u përdor gjerësisht si një mjet komunikimi dhe mësimi për
+        njerëzit me shikim të dobët. Braille vazhdoi të punojë në përparimin e
+        sistemit të tij gjatë gjithë jetës së tij dhe u bë një lider i
+        rëndësishëm në komunitetin e personave me shikim të dobët. Ai vdiq në
+        moshën 43-vjeçare në vitin 1852, por trashëgimia e tij vazhdon të jetë e
+        rëndësishme në botën moderne.
+      </p>
+
+      <p>
+        Përveç krijimit të sistemit të shkrimit me braille, Braille gjithashtu
+        punoi si mësues dhe aktivist për të drejtat e njerëzve me shikim të
+        dobët. Ai u bë një mbrojtës i ashpra për të drejtat e tyre dhe për
+        përdorimin e sistemit të braille në shkollat dhe institucionet e tjera.
+        Në vitet 1820 dhe 1830, ai shkroi disa librave për fëmijë me shikim të
+        dobët, duke u bërë një nga shkrimtarët më të njohur për këtë grup të
+        popullsisë. Ai gjithashtu udhëhoqi disa projekte për të siguruar që
+        sistemi i tij të shkruajtjes të mësohej dhe të përdorej në mënyrë të
+        gjerë në shkollat dhe institucionet e tjera. Braille vazhdoi të ndikojë
+        në botën e personave me shikim të dobët edhe pas vdekjes së tij. Sistemi
+        i tij i shkrimit u përhap në të gjithë botën dhe u bë një mjet i
+        rëndësishëm për të ndihmuar njerëzit me shikim të dobët të komunikojnë
+        dhe të mësojnë në mënyrë efektive. Përveç kësaj, Braille u kujtua edhe
+        si një nga njerëzit më të rëndësishëm në historinë e Francës. Në vitin
+        1952, trupi i tij u kthye në Panteonin e Parisit, një ndërtesë e
+        rëndësishme historike në kryeqytetin francez, për t'i nderuar arritjet e
+        tij të shumta dhe për të treguar respektin e Francës për kontributin e
+        tij të madh në shkencë dhe kulturë. Sot, sistemi i shkrimit me braille
+        është ende në përdorim në të gjithë botën dhe është një mjet i
+        rëndësishëm për njerëzit me shikim të dobët për të mësuar dhe komunikuar
+        me botën e tyre. Kontributi i Braille në historinë e njerëzimit është i
+        papërshkrueshëm dhe trashëgimia e tij vazhdon të jetë e vlefshme dhe e
+        rëndësishme për njerëzit e gjithë botës.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="stye.css" />
+    <title>Document</title>
+  </head>
+  <body>
+  
+
+    <nav>
+      <div class="menu-icon">
+        <span class="fas fa-bars"></span>
+      </div>
+      <div class="logo">
+        <img style="width: 50px" src="images/rks.png" alt="" />
+      </div>
+
+      <div class="nav-items">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutbraille.html">Rreth Braille</a></li>
+
+     </div> 
+     <div class="search-icon">
+        <!-- <span class="fas fa-search"></span> -->
+      </div>
+      <div class="cancel-icon">
+        <span class="fas fa-times"></span>
+      </div>
+     
+     </nav> 
+     <div class="content"></div>
+      <script>
+        const menuBtn = document.querySelector(".menu-icon span");
+        const searchBtn = document.querySelector(".search-icon");
+        const cancelBtn = document.querySelector(".cancel-icon");
+        const items = document.querySelector(".nav-items");
+        const form = document.querySelector("form");
+        menuBtn.onclick = () => {
+          items.classList.add("active");
+          menuBtn.classList.add("hide");
+          searchBtn.classList.add("hide");
+          cancelBtn.classList.add("show");
+        };
+        cancelBtn.onclick = () => {
+          items.classList.remove("active");
+          menuBtn.classList.remove("hide");
+          searchBtn.classList.remove("hide");
+          cancelBtn.classList.remove("show");
+          form.classList.remove("active");
+          cancelBtn.style.color = "#ff3d00";
+        };
+        searchBtn.onclick = () => {
+          form.classList.add("active");
+          searchBtn.classList.add("hide");
+          cancelBtn.classList.add("show");
+        };
+      </script>
+    </nav>  
+
+
+
+    <div class="banner">
+      <h1>
+        Unlock the World of Braille: Translate, Learn, and Empower Yourself and
+        Others!
+      </h1>
+      <br />
+      <div class="note">
+        NOTE. This web app is under construcion where new features will be
+        available such as Grade 2 Braille, text to spech and more.
+      </div>
+    </div>
+
+    <h1 style="text-align: center">Translate text to braille</h1>
+
+    <div class="languages">
+      <button id="shqip" class="language">Shqip</button>
+      <button id="turqisht" class="language">Turqisht</button>
+      <button id="romanisht" class="language">Romanisht</button>
+    </div>
+
+    <div class="translatearea">
+      <!-- <input placeholder="enter here" type="text" id="input" /> -->
+      <textarea
+        name="text"
+        id="input"
+        placeholder="Enter your text here..."></textarea>
+      <textarea
+        disabled
+        type="text"
+        name=""
+        id="output"
+        placeholder="Output"></textarea>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
