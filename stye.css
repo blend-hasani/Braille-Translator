@@ -245,11 +245,6 @@ nav .logo.space {
   background-color: white;
 }
 
-body {
-  background-image: url(images/banner.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .banner {
   width: 100%;
   height: 80vh;
@@ -273,6 +268,9 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 50px;
+  background-image: url(images/banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 textarea {
