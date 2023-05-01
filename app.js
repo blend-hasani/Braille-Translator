@@ -349,16 +349,26 @@ function translateRomanianToBraille() {
 input.addEventListener("input", translateAlbanianToBraille);
 
 shqip.addEventListener("click", () => {
+  romanisht.style.backgroundColor = "white";
+  shqip.style.backgroundColor = "#22b6bb";
+  turqisht.style.backgroundColor = "white";
   input.addEventListener("input", translateAlbanianToBraille);
   output.innerHTML = "";
 });
 
 turqisht.addEventListener("click", () => {
+  romanisht.style.backgroundColor = "white";
+  shqip.style.backgroundColor = "white";
+  turqisht.style.backgroundColor = "#22b6bb";
   input.addEventListener("input", translateTurkishToBraille);
   output.innerHTML = "";
 });
 
 romanisht.addEventListener("click", () => {
+  romanisht.style.backgroundColor = "#22b6bb";
+  shqip.style.backgroundColor = "white";
+  turqisht.style.backgroundColor = "white";
+
   input.addEventListener("input", translateRomanianToBraille);
   output.innerHTML = "";
 });
