@@ -1,6 +1,7 @@
 const input = document.getElementById("input");
 const output = document.getElementById("output");
 const btn = document.getElementById("translate-button");
+const shkarko = document.getElementById("shkarko");
 
 const shqip = document.getElementById("shqip");
 const turqisht = document.getElementById("turqisht");
@@ -99,84 +100,6 @@ const turkishbraille = [
   "⠓", //8
   "⠊", //9
   "⠚", //0
-];
-/////////////////////////////////////////////////////////////////////////
-const albanianletters = [
-  "a",
-  "b",
-  "c",
-  "ç",
-  "d",
-  "dh",
-  "e",
-  "ë",
-  "f",
-  "g",
-  "gj",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "ll",
-  "m",
-  "n",
-  "nj",
-  "o",
-  "p",
-  "q",
-  "r",
-  "rr",
-  "s",
-  "sh",
-  "t",
-  "th",
-  "u",
-  "v",
-  "x",
-  "xh",
-  "y",
-  "z",
-  "zh",
-];
-
-const albanianbraille = [
-  "⠁",
-  "⠃",
-  "⠉",
-  "⠩",
-  "⠙",
-  "⠹",
-  "⠑",
-  "⠡",
-  "⠋",
-  "⠛",
-  "⠻",
-  "⠓",
-  "⠊",
-  "⠚",
-  "⠅",
-  "⠇",
-  "⠷",
-  "⠍",
-  "⠝",
-  "⠫",
-  "⠕",
-  "⠏",
-  "⠟",
-  "⠗",
-  "⠯",
-  "⠎",
-  "⠱",
-  "⠞",
-  "⠾",
-  "⠥",
-  "⠧",
-  "⠭",
-  "⠮",
-  "⠽",
-  "⠵",
-  "⠳",
 ];
 
 ////////////////////////////////////////////////////////////////////////
@@ -305,55 +228,106 @@ function translateTurkishToBraille() {
   });
 }
 
-function translateAlbanianToBraille() {
-  const inputi = input.value;
-  const splitetarray = inputi.split();
+const albanianLetters = {
+  a: "⠁",
+  b: "⠃",
+  c: "⠉",
+  ç: "⠙",
+  d: "⠑",
+  dh: "⠙⠑",
+  e: "⠊",
+  ë: "⠫",
+  f: "⠋",
+  g: "⠛",
+  gj: "⠛⠋",
+  h: "⠓",
+  i: "⠊",
+  j: "⠚",
+  k: "⠅",
+  l: "⠇",
+  ll: "⠇⠇",
+  m: "⠍",
+  n: "⠝",
+  nj: "⠝⠊",
+  o: "⠕",
+  p: "⠏",
+  q: "⠟",
+  r: "⠗",
+  rr: "⠗⠗",
+  s: "⠎",
+  sh: "⠬",
+  t: "⠥",
+  th: "⠞",
+  u: "⠥⠗",
+  v: "⠧",
+  x: "⠽",
+  xh: "⠵",
+  y: "⠺",
+  z: "⠭",
+  zh: "⠵⠓",
+  0: "⠴",
+  1: "⠂",
+  2: "⠆",
+  3: "⠒",
+  4: "⠲",
+  5: "⠢",
+  6: "⠖",
+  7: "⠶",
+  8: "⠦",
+  9: "⠔",
+  "?": "⠢⠦",
+  "!": "⠖⠂",
+  "=": "⠐⠒",
+  ",": "⠂",
+  // Add more characters and their Braille representations here
+};
 
-  splitetarray.forEach((element) => {
-    let rezultati = "";
-    for (i = 0; i < element.length; i++) {
-      if (element.value == undefined) {
-        rezultati += " ";
-      }
+function translateAlbanianToBraille(text) {
+  let braille = "";
+  let i = 0;
+  while (i < text.length) {
+    let currentChar = text[i];
+    let nextChar = text[i + 1];
+    let currentBraille = albanianLetters[currentChar.toLowerCase()];
 
-      for (j = 0; j < albanianletters.length; j++) {
-        if (element.charAt(i) == albanianletters[j]) {
-          rezultati += albanianbraille[j];
-        }
-      }
+    // Check for double letters
+    if (
+      nextChar &&
+      albanianLetters[currentChar.toLowerCase() + nextChar.toLowerCase()]
+    ) {
+      currentBraille =
+        albanianLetters[currentChar.toLowerCase() + nextChar.toLowerCase()];
+      i++; // Skip the next character in the loop
     }
-    output.innerHTML = `${rezultati}`;
-  });
+
+    if (currentBraille) {
+      braille += currentBraille;
+    } else {
+      braille += currentChar; // Preserve characters that don't have Braille representations
+    }
+
+    i++;
+  }
+
+  return braille;
 }
 
-function translateRomanianToBraille() {
-  const inputi = input.value;
-  const splitetarray = inputi.split();
-
-  splitetarray.forEach((element) => {
-    let rezultati = "";
-    for (i = 0; i < element.length; i++) {
-      if (element.value == undefined) {
-        rezultati += " ";
-      }
-
-      for (j = 0; j < romanianletters.length; j++) {
-        if (element.charAt(i) == romanianletters[j]) {
-          rezultati += romanianbraille[j];
-        }
-      }
-    }
-    output.innerHTML = `${rezultati}`;
-  });
-}
-input.addEventListener("input", translateAlbanianToBraille);
+input.addEventListener("input", () => {
+  const perkthimi = translateAlbanianToBraille(input.value);
+  output.textContent = perkthimi;
+});
 
 shqip.addEventListener("click", () => {
   romanisht.style.backgroundColor = "white";
   shqip.style.backgroundColor = "#22b6bb";
   turqisht.style.backgroundColor = "white";
-  input.addEventListener("input", translateAlbanianToBraille);
-  output.innerHTML = "";
+  // //////////////////////////////////////
+  const perkthimi = translateAlbanianToBraille(input.value);
+  output.textContent = perkthimi;
+  input.addEventListener("input", () => {
+    const perkthimi = translateAlbanianToBraille(input.value);
+    output.textContent = perkthimi;
+  });
 });
 
 turqisht.addEventListener("click", () => {
@@ -372,3 +346,19 @@ romanisht.addEventListener("click", () => {
   input.addEventListener("input", translateRomanianToBraille);
   output.innerHTML = "";
 });
+
+window.onload = function () {
+  document.getElementById("shkarko").addEventListener("click", () => {
+    const pdf = this.document.getElementById("output");
+    console.log(pdf);
+    console.log(window);
+    var opt = {
+      margin: 1,
+      filename: "myfile.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+    html2pdf().from(pdf).set(opt).save();
+  });
+};
