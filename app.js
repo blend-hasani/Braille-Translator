@@ -319,7 +319,7 @@ input.addEventListener("input", () => {
 
 shqip.addEventListener("click", () => {
   romanisht.style.backgroundColor = "white";
-  shqip.style.backgroundColor = "#22b6bb";
+  shqip.style.backgroundColor = "#708ec9";
   turqisht.style.backgroundColor = "white";
   // //////////////////////////////////////
   const perkthimi = translateAlbanianToBraille(input.value);
@@ -333,13 +333,13 @@ shqip.addEventListener("click", () => {
 turqisht.addEventListener("click", () => {
   romanisht.style.backgroundColor = "white";
   shqip.style.backgroundColor = "white";
-  turqisht.style.backgroundColor = "#22b6bb";
+  turqisht.style.backgroundColor = "#708ec9";
   input.addEventListener("input", translateTurkishToBraille);
   output.innerHTML = "";
 });
 
 romanisht.addEventListener("click", () => {
-  romanisht.style.backgroundColor = "#22b6bb";
+  romanisht.style.backgroundColor = "#708ec9";
   shqip.style.backgroundColor = "white";
   turqisht.style.backgroundColor = "white";
 
