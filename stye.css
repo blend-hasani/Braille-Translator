@@ -277,7 +277,7 @@ nav .logo.space {
 textarea {
   resize: none;
   width: 500px;
-  height: 400px;
+  height: 100%;
   font-size: 20px;
   border-radius: 20px;
   margin: 10px;
